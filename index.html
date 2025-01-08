@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Жалоба на нарушение</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://servermon.ru/cdn/attachment/2023/11/4092/_2.jpeg') no-repeat center center/cover;
+            color: white;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        }
+        h1 {
+            margin: 20px 0;
+            font-size: 48px;
+            text-align: center;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <div class="content">
+        <button onclick="sendEmail()">Отправить письмо</button>
+    </div>
+
+    <script>
+        function sendEmail() {
+            const email = encodeURIComponent("abuse@telegram.org");
+            const subject = encodeURIComponent("Жалоба на Telegram-канал и на автора канала за незаконное распространение личных данных");
+            const body = encodeURIComponent(
+`Настоящим направляю жалобу на публикацию в Telegram-канале с ID 1690270214, содержащую персональные данные граждан, что является нарушением законодательства о защите персональных данных и правил Telegram.
+
+Ссылка на публикацию: https://t.me/c/1690270214/812
+
+В указанной публикации публично размещены следующие персональные данные двух граждан:
+
+* Самыкина Дарья Александровна: номер телефона, СНИЛС, паспортные данные (серия, номер, дата выдачи, орган выдачи), ИНН, дата рождения, пол, информация о наличии QIWI-кошелька и мобильной карты, адрес прописки.
+* Малюкова Елена Олеговна: номер телефона, СНИЛС, паспортные данные (серия, номер, дата выдачи, орган выдачи), ИНН, дата рождения, пол, информация о наличии QIWI-кошелька и мобильной карты, адрес прописки.
+
+Размещение данной информации без согласия граждан является незаконным и создает угрозу их безопасности и конфиденциальности. Публикация может быть использована для мошеннических действий или других противоправных деятельностей.  
+
+Прошу принять необходимые меры по удалению данной публикации и блокировке Telegram-канала за нарушение правил платформы и законодательства о защите персональных данных. Также прошу рассмотреть вопрос о блокировке аккаунта автора публикации за грубое нарушение правил Telegram и незаконное распространение персональных данных.
+
+Обращаю внимание, что автор публикации может попытаться удалить пост, чтобы избежать ответственности. Прошу учесть этот фактор и принять меры, гарантирующие привлечение автора к ответственности даже в случае удаления публикации.`
+            );
+            window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+        }
+    </script>
+</body>
+</html>
